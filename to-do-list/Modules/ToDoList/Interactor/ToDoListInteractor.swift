@@ -14,7 +14,7 @@ class ToDoListInteractor: ToDoListInteractorProtocol {
             switch result {
             case .success(let response):
                 
-                let toDo: [ToDo] = response.dataDTO.map {
+                let toDo: [ToDo] = response.todos.map {
                     ToDo(
                         id: $0.id,
                         todo: $0.todo,

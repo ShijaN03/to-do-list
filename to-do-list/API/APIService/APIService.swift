@@ -13,8 +13,7 @@ class APIService: APIServiceProtocol {
                 
                 switch response.result {
                 case .success(let data):
-                    let apiResponse = APIResponse(dataDTO: data.dataDTO)
-                    completion(.success(apiResponse))
+                    completion(.success(data))
                     return
                 case .failure(let error):
                     completion(.failure(error))

@@ -1,4 +1,7 @@
 struct APIResponse: Decodable {
     
-    let dataDTO: [ToDoDTO]
+    let todos: [ToDoDTO]
+    let total: Int
+    let skip: Int
+    let limit: Int
 }
