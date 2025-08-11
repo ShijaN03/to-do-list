@@ -7,7 +7,8 @@ class ToDoListView: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        view.backgroundColor = .red
+        interactor?.fetchData()
     }
 }
 
