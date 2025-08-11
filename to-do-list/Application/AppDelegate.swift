@@ -1,9 +1,3 @@
-//
-//  AppDelegate.swift
-//  to-do-list
-//
-//  Created by shijan on 11.08.2025.
-//
 
 import UIKit
 
