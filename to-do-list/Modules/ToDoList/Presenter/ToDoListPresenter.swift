@@ -1,7 +1,9 @@
 
-class ToDoListPresenter: ToDoListPresenterProtocol {
-    
+class ToDoListPresenter: ToDoListPresenterProtocol, ToDoListInteractorOutputProtocol {
+
     weak var view: ToDoListViewProtocol?
+    var interactor: ToDoListInteractorInputProtocol?
+    var router: (any ToDoListRouterProtocol)?
     
     func presentData(data: [ToDo]) {
         
@@ -14,11 +16,11 @@ class ToDoListPresenter: ToDoListPresenterProtocol {
             )
         }
         
-        view?.displayData(data: toDoVM)
+        
     }
     
     func presentError(description: String) {
         
-        view?.displayError(description: description)
+        
     }
 }

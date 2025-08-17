@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4C2BC1962E49FCB8007B15D6 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 4C2BC1952E49FCB8007B15D6 /* Alamofire */; };
+		4CE4EAC22E4F9327001F4CB1 /* AlamofireDynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 4C2BC1972E49FCB8007B15D6 /* AlamofireDynamic */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CE4EAC22E4F9327001F4CB1 /* AlamofireDynamic in Frameworks */,
 				4C2BC1962E49FCB8007B15D6 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

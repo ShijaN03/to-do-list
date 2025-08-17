@@ -1,9 +1,9 @@
 import Foundation
 
-class ToDoListInteractor: ToDoListInteractorProtocol {
+class ToDoListInteractor: ToDoListInteractorInputProtocol {
     
     var apiService: APIServiceProtocol?
-    var presenter: ToDoListPresenterProtocol?
+    weak var presenter: ToDoListInteractorOutputProtocol?
     
     func fetchData() {
         
@@ -25,14 +25,14 @@ class ToDoListInteractor: ToDoListInteractorProtocol {
                 
                 DispatchQueue.main.async {
                     
-                    self.presenter?.presentData(data: toDo)
+                    
                 }
                 
             case .failure(let error):
                 
                 DispatchQueue.main.async {
                     
-                    self.presenter?.presentError(description: error.localizedDescription)
+                    
                 }
             }
             

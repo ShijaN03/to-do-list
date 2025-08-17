@@ -2,13 +2,12 @@ import UIKit
 
 class ToDoListView: UIViewController {
     
-    var interactor: ToDoListInteractorProtocol?
-    var router: ToDoListRouterProtocol?
+    var presenter: ToDoListPresenterProtocol?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .red
-        interactor?.fetchData()
+        
     }
 }
 
