@@ -4,12 +4,13 @@ final class ToDoListBuilder: BuilderProtocol {
     
     static func build() -> UIViewController {
         
+        let apiService = APIService()
+        
         let view = ToDoListView()
         let presenter = ToDoListPresenter()
-        let interactor = ToDoListInteractor()
+        let interactor = ToDoListInteractor(apiService: apiService)
         let router = ToDoListRouter()
         
-        let apiService = APIService()
         
         view.presenter = presenter
         

@@ -1,11 +1,29 @@
+import Foundation
 
-class ToDoListPresenter: ToDoListPresenterProtocol, ToDoListInteractorOutputProtocol {
+final class ToDoListPresenter {
 
     weak var view: ToDoListViewProtocol?
     var interactor: ToDoListInteractorInputProtocol?
-    var router: (any ToDoListRouterProtocol)?
+    var router: ToDoListRouterProtocol?
     
-    func presentData(data: [ToDo]) {
+    var toDo: [ToDoVM] = []
+
+}
+
+extension ToDoListPresenter: ToDoListPresenterProtocol {
+    
+    func viewDidLoad() {
+        
+        interactor?.fetchData()
+    }
+    
+    
+    
+}
+
+extension ToDoListPresenter: ToDoListInteractorOutputProtocol {
+    
+    func didFetch(data: [ToDo]) {
         
         let toDoVM = data.map {
             ToDoVM(
@@ -16,11 +34,21 @@ class ToDoListPresenter: ToDoListPresenterProtocol, ToDoListInteractorOutputProt
             )
         }
         
+        self.toDo = toDoVM
         
+        DispatchQueue.main.async {
+            self.view?.displayData(data: toDoVM)
+            self.view
+        }
     }
     
-    func presentError(description: String) {
+    func didFail(error: Error) {
         
-        
+        DispatchQueue.main.async {
+            self.view?.displayError(description: error.localizedDescription)
+        }
     }
+    
+    
 }
+

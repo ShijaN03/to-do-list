@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4C2BC1962E49FCB8007B15D6 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 4C2BC1952E49FCB8007B15D6 /* Alamofire */; };
-		4CE4EAC22E4F9327001F4CB1 /* AlamofireDynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 4C2BC1972E49FCB8007B15D6 /* AlamofireDynamic */; };
+		4CE4EB072E54A697001F4CB1 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 4CE4EB062E54A697001F4CB1 /* SnapKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,8 +70,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4CE4EAC22E4F9327001F4CB1 /* AlamofireDynamic in Frameworks */,
 				4C2BC1962E49FCB8007B15D6 /* Alamofire in Frameworks */,
+				4CE4EB072E54A697001F4CB1 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -133,7 +133,7 @@
 			name = "to-do-list";
 			packageProductDependencies = (
 				4C2BC1952E49FCB8007B15D6 /* Alamofire */,
-				4C2BC1972E49FCB8007B15D6 /* AlamofireDynamic */,
+				4CE4EB062E54A697001F4CB1 /* SnapKit */,
 			);
 			productName = "to-do-list";
 			productReference = 4C2BC1452E49EFA8007B15D6 /* to-do-list.app */;
@@ -219,6 +219,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				4C2BC1942E49FCB8007B15D6 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				4CE4EB052E54A697001F4CB1 /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 4C2BC1462E49EFA8007B15D6 /* Products */;
@@ -589,6 +590,14 @@
 				minimumVersion = 5.10.2;
 			};
 		};
+		4CE4EB052E54A697001F4CB1 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -597,10 +606,10 @@
 			package = 4C2BC1942E49FCB8007B15D6 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
 		};
-		4C2BC1972E49FCB8007B15D6 /* AlamofireDynamic */ = {
+		4CE4EB062E54A697001F4CB1 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 4C2BC1942E49FCB8007B15D6 /* XCRemoteSwiftPackageReference "Alamofire" */;
-			productName = AlamofireDynamic;
+			package = 4CE4EB052E54A697001F4CB1 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

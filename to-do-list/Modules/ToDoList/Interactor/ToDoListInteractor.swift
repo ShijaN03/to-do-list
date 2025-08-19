@@ -1,17 +1,23 @@
 import Foundation
 
-class ToDoListInteractor: ToDoListInteractorInputProtocol {
+final class ToDoListInteractor: ToDoListInteractorInputProtocol {
     
-    var apiService: APIServiceProtocol?
+    var apiService: APIServiceProtocol
     weak var presenter: ToDoListInteractorOutputProtocol?
+    
+    init(apiService: APIServiceProtocol) {
+        self.apiService = apiService
+        
+    }
     
     func fetchData() {
         
-        self.apiService?.fetchData { [weak self] result in
+        self.apiService.fetchData { [weak self] result in
             
             guard let self = self else { return }
             
             switch result {
+                
             case .success(let response):
                 
                 let toDo: [ToDo] = response.todos.map {
@@ -23,22 +29,12 @@ class ToDoListInteractor: ToDoListInteractorInputProtocol {
                     )
                 }
                 
-                DispatchQueue.main.async {
-                    
-                    
-                }
+                self.presenter?.didFetch(data: toDo)
                 
             case .failure(let error):
                 
-                DispatchQueue.main.async {
-                    
-                    
-                }
+                self.presenter?.didFail(error: error)
             }
-            
         }
-        
-        
     }
-    
 }
