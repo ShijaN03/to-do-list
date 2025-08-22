@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		4C2BC1962E49FCB8007B15D6 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 4C2BC1952E49FCB8007B15D6 /* Alamofire */; };
 		4CE4EB072E54A697001F4CB1 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 4CE4EB062E54A697001F4CB1 /* SnapKit */; };
+		4CE4EBAD2E54E1A3001F4CB1 /* Task+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE4EBAB2E54E1A3001F4CB1 /* Task+CoreDataClass.swift */; };
+		4CE4EBAE2E54E1A3001F4CB1 /* Task+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CE4EBAC2E54E1A3001F4CB1 /* Task+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,6 +34,8 @@
 		4C2BC1452E49EFA8007B15D6 /* to-do-list.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "to-do-list.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C2BC15B2E49EFA9007B15D6 /* to-do-listTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "to-do-listTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C2BC1652E49EFA9007B15D6 /* to-do-listUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "to-do-listUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4CE4EBAB2E54E1A3001F4CB1 /* Task+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Task+CoreDataClass.swift"; path = "to-do-list/CoreData/Task+CoreDataClass.swift"; sourceTree = "<group>"; };
+		4CE4EBAC2E54E1A3001F4CB1 /* Task+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Task+CoreDataProperties.swift"; path = "to-do-list/CoreData/Task+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -95,6 +99,8 @@
 		4C2BC13C2E49EFA8007B15D6 = {
 			isa = PBXGroup;
 			children = (
+				4CE4EBAB2E54E1A3001F4CB1 /* Task+CoreDataClass.swift */,
+				4CE4EBAC2E54E1A3001F4CB1 /* Task+CoreDataProperties.swift */,
 				4C2BC1472E49EFA8007B15D6 /* to-do-list */,
 				4C2BC15E2E49EFA9007B15D6 /* to-do-listTests */,
 				4C2BC1682E49EFA9007B15D6 /* to-do-listUITests */,
@@ -262,6 +268,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CE4EBAD2E54E1A3001F4CB1 /* Task+CoreDataClass.swift in Sources */,
+				4CE4EBAE2E54E1A3001F4CB1 /* Task+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

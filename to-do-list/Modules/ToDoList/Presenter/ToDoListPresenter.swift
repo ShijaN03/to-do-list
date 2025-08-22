@@ -12,6 +12,10 @@ final class ToDoListPresenter {
 
 extension ToDoListPresenter: ToDoListPresenterProtocol {
     
+    func numberOfRows() -> Int {
+        return toDo.count
+    }
+    
     func viewDidLoad() {
         
         interactor?.fetchData()
@@ -37,8 +41,7 @@ extension ToDoListPresenter: ToDoListInteractorOutputProtocol {
         self.toDo = toDoVM
         
         DispatchQueue.main.async {
-            self.view?.displayData(data: toDoVM)
-            self.view
+            self.view?.reload()
         }
     }
     
@@ -46,6 +49,7 @@ extension ToDoListPresenter: ToDoListInteractorOutputProtocol {
         
         DispatchQueue.main.async {
             self.view?.displayError(description: error.localizedDescription)
+            self.view?.reload()
         }
     }
     

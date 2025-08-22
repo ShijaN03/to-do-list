@@ -3,7 +3,7 @@ import UIKit
 extension ToDoListView: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        presenter?.toDo.count ?? 0
+        presenter?.numberOfRows() ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -19,11 +19,19 @@ extension ToDoListView: UITableViewDelegate, UITableViewDataSource {
         cell.configure(
             id: toDo.id,
             todo: toDo.todo,
+            description: "",
             completed: toDo.completed,
             userID: toDo.userId)
         
         return cell
     }
     
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
+    }
     
 }

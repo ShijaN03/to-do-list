@@ -1,12 +1,13 @@
 import UIKit
 
 protocol ToDoListViewProtocol: AnyObject {
-    func displayData(data: [ToDoVM])
+    func reload()
     func displayError(description: String)
 }
 
 protocol ToDoListPresenterProtocol: AnyObject {
     var toDo: [ToDoVM] { get set }
+    func numberOfRows() -> Int
     func viewDidLoad()
 }
 

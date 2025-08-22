@@ -1,12 +1,12 @@
 extension ToDoListView: ToDoListViewProtocol {
-    
-    func displayData(data: [ToDoVM]) {
+
+    func reload() {
         tableView.reloadData()
     }
     
     func displayError(description: String) {
-        tableView.reloadData()
+        
     }
     
-    
+
 }
