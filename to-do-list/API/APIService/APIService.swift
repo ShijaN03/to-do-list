@@ -12,6 +12,7 @@ class APIService: APIServiceProtocol {
             .responseDecodable(of: APIResponse.self) { response in
                 
                 switch response.result {
+                    
                 case .success(let data):
                     completion(.success(data))
                     return

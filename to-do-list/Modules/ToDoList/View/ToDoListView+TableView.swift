@@ -18,10 +18,12 @@ extension ToDoListView: UITableViewDelegate, UITableViewDataSource {
         
         cell.configure(
             id: toDo.id,
-            todo: toDo.todo,
-            description: "",
-            completed: toDo.completed,
-            userID: toDo.userId)
+            title: toDo.title,
+            details: toDo.details ?? "",
+            createdAt: toDo.createdAt,
+            completed: toDo.isCompleted,
+            userID: toDo.userId
+            )
         
         return cell
     }

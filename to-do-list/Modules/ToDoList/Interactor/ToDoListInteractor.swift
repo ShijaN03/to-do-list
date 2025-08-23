@@ -3,11 +3,13 @@ import Foundation
 final class ToDoListInteractor: ToDoListInteractorInputProtocol {
     
     var apiService: APIServiceProtocol
+    let repo: CoreDataRepositoryProtocol
     weak var presenter: ToDoListInteractorOutputProtocol?
     
-    init(apiService: APIServiceProtocol) {
-        self.apiService = apiService
+    init(apiService: APIServiceProtocol, repo: CoreDataRepositoryProtocol) {
         
+        self.apiService = apiService
+        self.repo = repo
     }
     
     func fetchData() {
@@ -23,10 +25,11 @@ final class ToDoListInteractor: ToDoListInteractorInputProtocol {
                 let toDo: [ToDo] = response.todos.map {
                     ToDo(
                         id: $0.id,
-                        todo: $0.todo,
-                        completed: $0.completed,
-                        userId: $0.userId
-                    )
+                        title: $0.todo,
+                        createdAt: Date(),
+                        isCompleted: $0.completed,
+                        userId: $0.userId)
+                    
                 }
                 
                 self.presenter?.didFetch(data: toDo)
@@ -34,6 +37,7 @@ final class ToDoListInteractor: ToDoListInteractorInputProtocol {
             case .failure(let error):
                 
                 self.presenter?.didFail(error: error)
+                
             }
         }
     }

@@ -4,7 +4,7 @@ final class CoreDataManager {
     
     static let shared = CoreDataManager()
     
-    var container: NSPersistentContainer
+    private var container: NSPersistentContainer
     var context: NSManagedObjectContext {
         return container.viewContext
     }
@@ -16,6 +16,7 @@ final class CoreDataManager {
                 print(error)
             }
         }
+        container.viewContext.automaticallyMergesChangesFromParent = true
     }
     
     func save() {
@@ -32,7 +33,17 @@ final class CoreDataManager {
     func performBackground(block: @escaping(NSManagedObjectContext) -> Void) {
         
         container.performBackgroundTask { context in
+            
             block(context)
+            
+            if context.hasChanges {
+                
+                do {
+                    try context.save()
+                } catch {
+                    print(error)
+                }
+            }
         }
     }
     

@@ -1,7 +1,11 @@
+import Foundation
+
 struct ToDo {
     
     let id: Int
-    let todo: String
-    let completed: Bool
-    let userId: Int
+    var title: String
+    var details: String?
+    var createdAt: Date
+    var isCompleted: Bool
+    var userId: Int
 }

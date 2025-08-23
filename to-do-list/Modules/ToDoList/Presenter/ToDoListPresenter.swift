@@ -32,15 +32,16 @@ extension ToDoListPresenter: ToDoListInteractorOutputProtocol {
         let toDoVM = data.map {
             ToDoVM(
                 id: $0.id,
-                todo: $0.todo,
-                completed: $0.completed,
-                userId: $0.userId
-            )
+                title: $0.title,
+                createdAt: $0.createdAt,
+                isCompleted: $0.isCompleted,
+                userId: $0.userId)
         }
         
         self.toDo = toDoVM
         
         DispatchQueue.main.async {
+            
             self.view?.reload()
         }
     }

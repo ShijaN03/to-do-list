@@ -15,8 +15,9 @@ class ToDoListCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configure(id: Int, todo: String, description: String, completed: Bool, userID: Int) {
-        titleLabel.text = todo
+    func configure(id: Int, title: String, details: String, createdAt: Date, completed: Bool, userID: Int) {
+        
+        titleLabel.text = title
     }
     
     private func setUpUI() {
