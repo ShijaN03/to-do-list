@@ -30,21 +30,53 @@ final class CoreDataManager {
         }
     }
     
-    func performBackground(block: @escaping(NSManagedObjectContext) -> Void) {
+    func performBackground(block: @escaping(NSManagedObjectContext) throws -> Void, completion: @escaping(Result<Void, Error>) -> Void) {
         
         container.performBackgroundTask { context in
             
-            block(context)
-            
-            if context.hasChanges {
+            context.mergePolicy = NSMergeByPropertyStoreTrumpMergePolicy
+            do {
+                try block(context)
                 
-                do {
+                if context.hasChanges {
+                    
                     try context.save()
-                } catch {
-                    print(error)
+                }
+                
+                DispatchQueue.main.async {
+                    completion(.success(()))
+                }
+            } catch {
+                
+                DispatchQueue.main.async {
+                    completion(.failure(error))
                 }
             }
         }
     }
     
+    func performBackground<T>(block: @escaping(NSManagedObjectContext) throws -> T, completion: @escaping(Result<T, Error>) -> Void) {
+        
+        container.performBackgroundTask { context in
+            
+            do {
+                
+                let value = try block(context)
+                
+                if context.hasChanges {
+                    
+                    try context.save()
+                }
+                
+                DispatchQueue.main.async {
+                    completion(.success(value))
+                }
+            } catch {
+                
+                DispatchQueue.main.async {
+                    completion(.failure(error))
+                }
+            }
+        }
+    }
 }
